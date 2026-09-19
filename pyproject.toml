@@ -1,0 +1,31 @@
+[project]
+name = "sentinel-ai"
+version = "0.1.0"
+description = "Enterprise agentic AI platform for production incident investigation and response."
+readme = "README.md"
+authors = [
+    { name = "Keneth Ravindu", email = "kenethravindu2000@gmail.com" }
+]
+requires-python = ">=3.11"
+
+dependencies = [
+    "fastapi>=0.141.1",
+    "httpx>=0.28.1",
+    "pydantic>=2.13.5",
+    "pydantic-settings>=2.15.0",
+    "python-dotenv>=1.2.3",
+    "uvicorn[standard]>=0.53.0",
+]
+
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+    "pytest-asyncio>=1.4.0",
+    "ruff>=0.16.8",
+]
+
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
