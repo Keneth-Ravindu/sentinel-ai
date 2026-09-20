@@ -1,5 +1,7 @@
 from fastapi import FastAPI
 
+from app.api.incidents import router as incidents_router
+
 
 def create_app() -> FastAPI:
     application = FastAPI(
@@ -9,6 +11,10 @@ def create_app() -> FastAPI:
             "incident investigation and response."
         ),
         version="0.1.0",
+    )
+
+    application.include_router(
+        incidents_router
     )
 
     return application
