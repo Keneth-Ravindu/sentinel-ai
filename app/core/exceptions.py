@@ -28,3 +28,15 @@ class InvalidIncidentTransitionError(Exception):
 
 # This is better than having business logic throw HTTP exceptions.
 # Our domain/service layer should not know that FastAPI even exists.
+
+class ServiceNotFoundError(Exception):
+    def __init__(self, service: str) -> None:
+        self.service = service
+
+        super().__init__(
+            f"Service '{service}' was not found."
+        )
+
+
+class InvalidSimulatorActionError(Exception):
+    pass

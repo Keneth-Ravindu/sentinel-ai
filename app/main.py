@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 
 from app.api.incidents import router as incidents_router
+from app.api.simulator import router as simulator_router
 
 
 def create_app() -> FastAPI:
@@ -15,6 +16,10 @@ def create_app() -> FastAPI:
 
     application.include_router(
         incidents_router
+    )
+
+    application.include_router(
+        simulator_router
     )
 
     return application
