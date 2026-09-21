@@ -40,3 +40,19 @@ class ServiceNotFoundError(Exception):
 
 class InvalidSimulatorActionError(Exception):
     pass
+
+
+class InvestigationNotAllowedError(Exception):
+    def __init__(
+        self,
+        incident_id: UUID,
+        status: str,
+    ) -> None:
+        self.incident_id = incident_id
+        self.status = status
+
+        super().__init__(
+            "Investigation cannot be started for "
+            f"incident '{incident_id}' while its "
+            f"status is '{status}'."
+        )
